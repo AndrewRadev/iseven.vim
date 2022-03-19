@@ -1,3 +1,5 @@
+let s:cache = {}
+
 function iseven#Run(number)
   let number = str2nr(a:number)
 
@@ -6,13 +8,21 @@ function iseven#Run(number)
     return
   endif
 
-  let output = trim(system('curl -s https://api.isevenapi.xyz/api/iseven/' . number))
-  if v:shell_error
-    echoerr "Error connecting to API: " . output
-    return
+  if g:iseven_cache_enabled && has_key(s:cache, number)
+    let response = s:cache[number]
+  else
+    let output = trim(system('curl -s https://api.isevenapi.xyz/api/iseven/' . number))
+    if v:shell_error
+      echoerr "Error connecting to API: " . output
+      return
+    endif
+
+    let response = json_decode(output)
   endif
 
-  let response = json_decode(output)
+  if g:iseven_cache_enabled
+    let s:cache[number] = response
+  endif
 
   if has_key(response, "error")
     echoerr "Error: " . response["error"]
