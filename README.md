@@ -1,8 +1,8 @@
-[![Build Status](https://circleci.com/gh/AndrewRadev/iseven.vim/tree/main.svg?style=shield)](https://circleci.com/gh/AndrewRadev/iseven.vim?branch=main)
+![Demo](http://i.andrewradev.com/e429efd446ed3ba878550922ff5be6ee.gif)
 
 ## Usage
 
-This plugin is a wrapper around the powerful "isEven" online service: https://isevenapi.xyz/.
+This plugin is a wrapper around the powerful "isEven" online service: <https://isevenapi.xyz/>.
 
 To use, simply run the command `:IsEven` with the number you want to check for divisibility by 2:
 
