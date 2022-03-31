@@ -1,7 +1,7 @@
-*iseven.txt*	TODO
+*iseven.txt*	Check if a number is even or not
 
 ==============================================================================
-CONTENTS                                        *iseven*   *iseven-contents*
+CONTENTS                                              *iseven*   *iseven-contents*
 
     Installation................................: |iseven-installation|
     Usage.......................................: |iseven-usage|
@@ -11,7 +11,7 @@ CONTENTS                                        *iseven*   *iseven-contents*
 
 
 ==============================================================================
-INSTALLATION                                            *iseven-installation*
+INSTALLATION                                               *iseven-installation*
 
 The easiest way to install the plugin is with a plugin manager:
 
@@ -43,24 +43,47 @@ https://github.com/AndrewRadev/iseven.vim/releases.
 
 
 ==============================================================================
-USAGE                                                          *iseven-usage*
+USAGE                                                             *iseven-usage*
 
-TODO
+This plugin is a wrapper around the powerful "isEven" online service:
+https://isevenapi.xyz/.
+
+To use, simply run the command `:IsEven` with the number you want to check for
+divisibility by 2:
+>
+    :IsEven 6
+    It's even: 6
+
+    :IsEven 7
+    It's not even: 7
+<
+This requires the `curl` command to be installed. In the future, we might have
+alternative backends to make the API requests, but for now, it's a hard
+dependency.
+
+Note that the service shows advertisements and this plugin is obliged to
+render them as popup notifications. A future version might integrate isEven
+Premium or Enteprise API keys for a larger range of numbers and an ad-free
+experience.
 
 
 ==============================================================================
-SETTINGS                                                    *iseven-settings*
+SETTINGS                                                       *iseven-settings*
 
-TODO
+                                                        *g:iseven_cache_enabled*
+>
+    let g:iseven_cache_enabled = 0
+<
+Default value: 1
+
+A boolean that controls whether the plugin should cache the results of its API
+calls. Caching is enabled by default for performance reasons, but you could
+turn it off to ensure your numeric divisibility information is always
+up-to-date.
 
 
 ==============================================================================
-INTERNALS                                                  *iseven-internals*
-
-TODO
-
-==============================================================================
-ISSUES                                                        *iseven-issues*
+ISSUES                                                           *iseven-issues*
 
 Any issues and suggestions are very welcome on the github bugtracker:
 https://github.com/AndrewRadev/iseven.vim/issues
