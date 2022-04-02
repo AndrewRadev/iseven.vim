@@ -16,6 +16,17 @@ It's not even: 7
 
 This requires the [`curl`](https://curl.se/) command to be installed. In the future, we might have alternative backends to make the API requests, but for now, it's a hard dependency.
 
+The plugin also provides a powerful `:IsOdd` command that tells you if the
+number is odd or not:
+
+```
+:IsOdd 6
+It's not odd: 6
+
+:IsOdd 7
+It's odd: 7
+```
+
 Note that the service shows advertisements and this plugin is obliged to render them as popup notifications. A future version might integrate isEven Premium or Enteprise API keys for a larger range of numbers and an ad-free experience.
 
 ## Contributing

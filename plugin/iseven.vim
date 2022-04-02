@@ -10,7 +10,8 @@ if !exists('g:iseven_cache_enabled')
   let g:iseven_cache_enabled = 1
 endif
 
-command! -nargs=1 IsEven :call iseven#Run(<f-args>)
+command! -nargs=1 IsEven :call iseven#CheckEven(<f-args>)
+command! -nargs=1 IsOdd  :call iseven#CheckOdd(<f-args>)
 
 let &cpo = s:keepcpo
 unlet s:keepcpo
